@@ -3,7 +3,8 @@ export const DUMMY_PLACES = [
     id: "p1",
     imageURL: "https://images.unsplash.com/photo-1503264116251-35a269479413",
     title: "Cozy Coffee House",
-    description: "A small, warm café tucked away in the city center. Perfect for reading and people-watching.",
+    description:
+      "A small, warm café tucked away in the city center. Perfect for reading and people-watching.",
     address: "123 Main Street, Cairo, Egypt",
     creatorId: "01",
     coordinates: {
@@ -15,7 +16,8 @@ export const DUMMY_PLACES = [
     id: "p2",
     imageURL: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267",
     title: "Mountain View Cabin",
-    description: "A quiet wooden cabin overlooking the snow-capped peaks. Ideal for writers and hikers.",
+    description:
+      "A quiet wooden cabin overlooking the snow-capped peaks. Ideal for writers and hikers.",
     address: "Highland Trail 7, Giza Plateau, Egypt",
     creatorId: "01",
     coordinates: {
@@ -27,7 +29,8 @@ export const DUMMY_PLACES = [
     id: "p3",
     imageURL: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
     title: "Sunset Beach",
-    description: "Golden sand and orange skies — this beach is made for long walks and salty breezes.",
+    description:
+      "Golden sand and orange skies — this beach is made for long walks and salty breezes.",
     address: "Blue Coast Road, Alexandria, Egypt",
     creatorId: "02",
     coordinates: {
@@ -51,7 +54,8 @@ export const DUMMY_PLACES = [
     id: "p5",
     imageURL: "https://images.unsplash.com/photo-1505691938895-1758d7feb511",
     title: "Ancient Oasis",
-    description: "A calm spot surrounded by palms and desert dunes — rumored to have hidden springs.",
+    description:
+      "A calm spot surrounded by palms and desert dunes — rumored to have hidden springs.",
     address: "Siwa Oasis, Western Desert, Egypt",
     creatorId: "04",
     coordinates: {

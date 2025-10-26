@@ -1,11 +1,14 @@
 import { useState } from "react";
+import { useContext } from "react";
 import Card from "../components/UI/Card.jsx";
 import Input from "../components/UI/Input.jsx";
 import Button from "../components/UI/Button.jsx";
 import { VALIDATOR_EMAIL, VALIDATOR_MINLENGTH, VALIDATOR_REQUIRE } from "../utils/validators.js";
 import { useForm } from "../hooks/form-hook.js";
+import { AuthContext } from "../context/auth-context.js";
 
 const Authenticate = () => {
+  const auth = useContext(AuthContext);
   const [isLoginMode, setIsLoginMode] = useState(true);
   const [formState, inputHandler, setFormData] = useForm(
     {
@@ -23,6 +26,7 @@ const Authenticate = () => {
 
   const authSubmitHandler = (event) => {
     event.preventDefault();
+    auth.login();
     console.log(formState.inputs);
   };
   const switchModeHandler = () => {
@@ -82,15 +86,11 @@ const Authenticate = () => {
           errorText="Please enter a valid password, at least 8 characters."
           onInput={inputHandler}
         />
-        <Button
-          type="submit"
-          disabled={!formState.isValid}>
+        <Button type="submit" disabled={!formState.isValid}>
           {isLoginMode ? "LOGIN" : "SIGNUP"}
         </Button>
       </form>
-      <Button
-        inverse
-        onClick={switchModeHandler}>
+      <Button inverse onClick={switchModeHandler}>
         SWITCH TO {isLoginMode ? "SIGNUP" : "LOGIN"}
       </Button>
     </Card>

@@ -28,9 +28,7 @@ const NewPlaces = () => {
   };
 
   return (
-    <form
-      className="place-form"
-      onSubmit={newPlaceSubmitHandler}>
+    <form className="place-form" onSubmit={newPlaceSubmitHandler}>
       <Input
         id="title"
         element="input"
@@ -56,9 +54,7 @@ const NewPlaces = () => {
         errorText="Please enter a valid address."
         onInput={inputHandler}
       />
-      <Button
-        type="submit"
-        disabled={!formState.isValid}>
+      <Button type="submit" disabled={!formState.isValid}>
         ADD PLACE
       </Button>
     </form>

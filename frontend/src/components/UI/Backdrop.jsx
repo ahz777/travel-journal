@@ -3,9 +3,7 @@ import "./Backdrop.css";
 
 const Backdrop = (props) => {
   return createPortal(
-    <div
-      className="backdrop"
-      onClick={props.onClick}></div>,
+    <div className="backdrop" onClick={props.onClick}></div>,
     document.getElementById("backdrop-hook")
   );
 };

@@ -6,10 +6,7 @@ import "./Modal.css";
 
 const ModalOverlay = forwardRef((props, ref) => {
   const content = (
-    <div
-      className={`modal ${props.className}`}
-      style={props.style}
-      ref={ref}>
+    <div className={`modal ${props.className}`} style={props.style} ref={ref}>
       <header className={`modal__header ${props.headerClass}`}>
         <h2>{props.header}</h2>
       </header>
@@ -35,10 +32,7 @@ const Modal = (props) => {
         mountOnEnter
         unmountOnExit
         nodeRef={nodeRef}>
-        <ModalOverlay
-          {...props}
-          ref={nodeRef}
-        />
+        <ModalOverlay {...props} ref={nodeRef} />
       </CSSTransition>
     </>
   );

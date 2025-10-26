@@ -70,9 +70,7 @@ const UpdatePlace = () => {
   }
 
   return (
-    <form
-      className="place-form"
-      onSubmit={updatePlaceSubmitHandler}>
+    <form className="place-form" onSubmit={updatePlaceSubmitHandler}>
       <Input
         id="title"
         element="input"
@@ -94,9 +92,7 @@ const UpdatePlace = () => {
         initialValue={formState.inputs.description.value}
         initialValid={formState.inputs.description.isValid}
       />
-      <Button
-        type="submit"
-        disabled={!formState.isValid}>
+      <Button type="submit" disabled={!formState.isValid}>
         UPDATE PLACE
       </Button>
     </form>

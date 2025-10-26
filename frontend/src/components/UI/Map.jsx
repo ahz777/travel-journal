@@ -20,12 +20,6 @@ const Map = (props) => {
     });
   }, [center, zoom]);
 
-  return (
-    <div
-      ref={mapRef}
-      className={`map ${props.className}`}
-      style={props.style}
-      id="map"></div>
-  );
+  return <div ref={mapRef} className={`map ${props.className}`} style={props.style} id="map"></div>;
 };
 export default Map;

@@ -12,8 +12,7 @@ const SideDrawer = (props) => {
       classNames="slide-in-left"
       mountOnEnter
       unmountOnExit
-      nodeRef={nodeRef}
-    >
+      nodeRef={nodeRef}>
       <aside ref={nodeRef} className="side-drawer" onClick={props.onClick}>
         {props.children}
       </aside>
