@@ -5,7 +5,7 @@ import Users from "./pages/Users";
 import NewPlace from "./pages/NewPlace";
 import UserPlaces from "./pages/UserPlaces";
 import UpdatePlace from "./pages/UpdatePlace";
-import Auth from "./pages/Auth";
+import Authenticate from "./pages/Authenticate";
 import "./App.css";
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
             />{" "}
             <Route
               path="/auth"
-              element={<Auth />}
+              element={<Authenticate />}
             />
             <Route
               path="*"
