@@ -1,12 +1,12 @@
-export const USERS = [
-  { id: "01", name: "Retsu", image: "/avatars/avatar01.jpg", placeCount: 3 },
-  { id: "02", name: "Zykken", image: "/avatars/avatar02.jpg", placeCount: 9 },
-  { id: "03", name: "Shadow", image: "/avatars/avatar03.jpg", placeCount: 7 },
-  { id: "04", name: "Amadeus", image: "/avatars/avatar04.jpg", placeCount: 1 },
-  { id: "05", name: "Emilia", image: "/avatars/avatar05.jpg", placeCount: 6 },
+const USERS = [
+  { id: "u1", name: "Retsu", image: "/avatars/avatar01.jpg", placeCount: 3 },
+  { id: "u2", name: "Zykken", image: "/avatars/avatar02.jpg", placeCount: 9 },
+  { id: "u3", name: "Shadow", image: "/avatars/avatar03.jpg", placeCount: 7 },
+  { id: "u4", name: "Amadeus", image: "/avatars/avatar04.jpg", placeCount: 1 },
+  { id: "u5", name: "Emilia", image: "/avatars/avatar05.jpg", placeCount: 6 },
 ];
 
-export const DUMMY_PLACES = [
+const DUMMY_PLACES = [
   {
     id: "p1",
     imageURL: "https://images.unsplash.com/photo-1503264116251-35a269479413",
@@ -14,7 +14,7 @@ export const DUMMY_PLACES = [
     description:
       "A small, warm café tucked away in the city center. Perfect for reading and people-watching.",
     address: "123 Main Street, Cairo, Egypt",
-    creatorId: "01",
+    creatorId: "u1",
     coordinates: {
       lat: 30.0444,
       lng: 31.2357,
@@ -27,7 +27,7 @@ export const DUMMY_PLACES = [
     description:
       "A quiet wooden cabin overlooking the snow-capped peaks. Ideal for writers and hikers.",
     address: "Highland Trail 7, Giza Plateau, Egypt",
-    creatorId: "01",
+    creatorId: "u1",
     coordinates: {
       lat: 29.9792,
       lng: 31.1342,
@@ -40,7 +40,7 @@ export const DUMMY_PLACES = [
     description:
       "Golden sand and orange skies — this beach is made for long walks and salty breezes.",
     address: "Blue Coast Road, Alexandria, Egypt",
-    creatorId: "02",
+    creatorId: "u2",
     coordinates: {
       lat: 31.2001,
       lng: 29.9187,
@@ -52,7 +52,7 @@ export const DUMMY_PLACES = [
     title: "Urban Art Loft",
     description: "An industrial-style apartment decorated with graffiti murals and neon lights.",
     address: "22 Nile Street, Downtown Cairo, Egypt",
-    creatorId: "03",
+    creatorId: "u3",
     coordinates: {
       lat: 30.0561,
       lng: 31.2394,
@@ -65,7 +65,7 @@ export const DUMMY_PLACES = [
     description:
       "A calm spot surrounded by palms and desert dunes — rumored to have hidden springs.",
     address: "Siwa Oasis, Western Desert, Egypt",
-    creatorId: "04",
+    creatorId: "u4",
     coordinates: {
       lat: 29.2032,
       lng: 25.5194,
@@ -77,10 +77,12 @@ export const DUMMY_PLACES = [
     title: "Tech Hub Workspace",
     description: "A modern coworking space buzzing with startups, espresso machines, and ideas.",
     address: "Innovation Park, Smart Village, Giza, Egypt",
-    creatorId: "04",
+    creatorId: "u4",
     coordinates: {
       lat: 30.0733,
       lng: 31.0206,
     },
   },
 ];
+
+module.exports = { DUMMY_PLACES, USERS };
