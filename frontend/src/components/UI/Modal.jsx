@@ -1,8 +1,8 @@
-import ReactDOM from "react-dom";
-import { CSSTransition } from "react-transition-group";
-import { forwardRef, useRef } from "react";
-import Backdrop from "./Backdrop";
-import "./Modal.css";
+import ReactDOM from 'react-dom';
+import { CSSTransition } from 'react-transition-group';
+import { forwardRef, useRef } from 'react';
+import Backdrop from './Backdrop';
+import './Modal.css';
 
 const ModalOverlay = forwardRef((props, ref) => {
   const content = (
@@ -16,7 +16,7 @@ const ModalOverlay = forwardRef((props, ref) => {
       </form>
     </div>
   );
-  return ReactDOM.createPortal(content, document.getElementById("modal-hook"));
+  return ReactDOM.createPortal(content, document.getElementById('modal-hook'));
 });
 
 const Modal = (props) => {
@@ -24,7 +24,7 @@ const Modal = (props) => {
 
   return (
     <>
-      {props.show && <Backdrop onClick={props.onCancel} />}{" "}
+      {props.show && <Backdrop onClick={props.onCancel} />}{' '}
       <CSSTransition
         in={props.show}
         timeout={200}

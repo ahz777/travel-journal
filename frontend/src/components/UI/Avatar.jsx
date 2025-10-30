@@ -1,4 +1,4 @@
-import "./Avatar.css";
+import './Avatar.css';
 
 const Avatar = (props) => {
   return (

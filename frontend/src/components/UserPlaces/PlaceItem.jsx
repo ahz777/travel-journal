@@ -1,10 +1,10 @@
-import { useState, useContext } from "react";
-import Card from "../UI/Card";
-import Button from "../UI/Button";
-import Modal from "../UI/Modal";
-import Map from "../UI/Map";
-import { AuthContext } from "../../context/auth-context";
-import "./PlaceItem.css";
+import { useState, useContext } from 'react';
+import Card from '../UI/Card';
+import Button from '../UI/Button';
+import Modal from '../UI/Modal';
+import Map from '../UI/Map';
+import { AuthContext } from '../../context/auth-context';
+import './PlaceItem.css';
 
 const PlaceItem = (props) => {
   const auth = useContext(AuthContext);
@@ -15,7 +15,7 @@ const PlaceItem = (props) => {
   const closeMapHandler = () => setShowMap(false);
   const showDeleteWarningHandler = () => setDeleteConfirmModal(true);
   const cancelDeleteHandler = () => setDeleteConfirmModal(false);
-  const confirmDeleteHandler = () => console.log("DELETING...");
+  const confirmDeleteHandler = () => console.log('DELETING...');
 
   return (
     <>

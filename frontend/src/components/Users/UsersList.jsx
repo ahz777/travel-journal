@@ -1,6 +1,6 @@
-import UserItem from "./UserItem";
-import Card from "../UI/Card";
-import "./UsersList.css";
+import UserItem from './UserItem';
+import Card from '../UI/Card';
+import './UsersList.css';
 
 const UsersList = ({ users }) => {
   if (users.length === 0) {

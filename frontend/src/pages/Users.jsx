@@ -1,5 +1,5 @@
-import UsersList from "../components/Users/UsersList";
-import { USERS } from "../data";
+import UsersList from '../components/Users/UsersList';
+import { USERS } from '../data';
 
 const Users = () => {
   return (

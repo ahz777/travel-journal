@@ -1,7 +1,7 @@
-import Card from "../UI/Card.jsx";
-import PlaceItem from "./PlaceItem";
-import Button from "../UI/Button.jsx";
-import "./PlaceList.css";
+import Card from '../UI/Card.jsx';
+import PlaceItem from './PlaceItem';
+import Button from '../UI/Button.jsx';
+import './PlaceList.css';
 
 const PlaceList = (props) => {
   if (props.items.length === 0) {

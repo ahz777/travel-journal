@@ -1,21 +1,21 @@
-import Input from "../components/UI/Input";
-import Button from "../components/UI/Button";
-import { VALIDATOR_MINLENGTH, VALIDATOR_REQUIRE } from "../utils/validators";
-import { useForm } from "../hooks/form-hook";
+import Input from '../components/UI/Input';
+import Button from '../components/UI/Button';
+import { VALIDATOR_MINLENGTH, VALIDATOR_REQUIRE } from '../utils/validators';
+import { useForm } from '../hooks/form-hook';
 
 const NewPlaces = () => {
   const [formState, inputHandler] = useForm(
     {
       title: {
-        value: "",
+        value: '',
         isValid: false,
       },
       description: {
-        value: "",
+        value: '',
         isValid: false,
       },
       address: {
-        value: "",
+        value: '',
         isValid: false,
       },
     },

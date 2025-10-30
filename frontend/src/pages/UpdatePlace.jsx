@@ -1,11 +1,11 @@
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import Input from "../components/UI/Input";
-import Button from "../components/UI/Button";
-import { VALIDATOR_REQUIRE, VALIDATOR_MINLENGTH } from "../utils/validators";
-import { DUMMY_PLACES } from "../data";
-import { useForm } from "../hooks/form-hook";
-import Card from "../components/UI/Card";
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import Input from '../components/UI/Input';
+import Button from '../components/UI/Button';
+import { VALIDATOR_REQUIRE, VALIDATOR_MINLENGTH } from '../utils/validators';
+import { DUMMY_PLACES } from '../data';
+import { useForm } from '../hooks/form-hook';
+import Card from '../components/UI/Card';
 
 const UpdatePlace = () => {
   const placeId = useParams().placeId;
@@ -14,11 +14,11 @@ const UpdatePlace = () => {
   const [formState, inputHandler, setFormData] = useForm(
     {
       title: {
-        value: "",
+        value: '',
         isValid: false,
       },
       description: {
-        value: "",
+        value: '',
         isValid: false,
       },
     },

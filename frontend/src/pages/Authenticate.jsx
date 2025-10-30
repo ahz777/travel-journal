@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { useContext } from "react";
-import Card from "../components/UI/Card.jsx";
-import Input from "../components/UI/Input.jsx";
-import Button from "../components/UI/Button.jsx";
-import { VALIDATOR_EMAIL, VALIDATOR_MINLENGTH, VALIDATOR_REQUIRE } from "../utils/validators.js";
-import { useForm } from "../hooks/form-hook.js";
-import { AuthContext } from "../context/auth-context.js";
+import { useState } from 'react';
+import { useContext } from 'react';
+import Card from '../components/UI/Card.jsx';
+import Input from '../components/UI/Input.jsx';
+import Button from '../components/UI/Button.jsx';
+import { VALIDATOR_EMAIL, VALIDATOR_MINLENGTH, VALIDATOR_REQUIRE } from '../utils/validators.js';
+import { useForm } from '../hooks/form-hook.js';
+import { AuthContext } from '../context/auth-context.js';
 
 const Authenticate = () => {
   const auth = useContext(AuthContext);
@@ -13,11 +13,11 @@ const Authenticate = () => {
   const [formState, inputHandler, setFormData] = useForm(
     {
       email: {
-        value: "",
+        value: '',
         isValid: false,
       },
       password: {
-        value: "",
+        value: '',
         isValid: false,
       },
     },
@@ -43,7 +43,7 @@ const Authenticate = () => {
         {
           ...formState.inputs,
           name: {
-            value: "",
+            value: '',
             isValid: false,
           },
         },
@@ -87,11 +87,11 @@ const Authenticate = () => {
           onInput={inputHandler}
         />
         <Button type="submit" disabled={!formState.isValid}>
-          {isLoginMode ? "LOGIN" : "SIGNUP"}
+          {isLoginMode ? 'LOGIN' : 'SIGNUP'}
         </Button>
       </form>
       <Button inverse onClick={switchModeHandler}>
-        SWITCH TO {isLoginMode ? "SIGNUP" : "LOGIN"}
+        SWITCH TO {isLoginMode ? 'SIGNUP' : 'LOGIN'}
       </Button>
     </Card>
   );

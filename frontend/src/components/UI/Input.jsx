@@ -1,16 +1,16 @@
-import { useReducer, useEffect } from "react";
-import { validate } from "../../utils/validators";
-import "./Input.css";
+import { useReducer, useEffect } from 'react';
+import { validate } from '../../utils/validators';
+import './Input.css';
 
 const inputReducer = (state, action) => {
   switch (action.type) {
-    case "CHANGE":
+    case 'CHANGE':
       return {
         ...state,
         value: action.val,
         isValid: validate(action.val, action.validators),
       };
-    case "TOUCH":
+    case 'TOUCH':
       return {
         ...state,
         isTouched: true,
@@ -22,7 +22,7 @@ const inputReducer = (state, action) => {
 
 const Input = (props) => {
   const [inputState, dispatch] = useReducer(inputReducer, {
-    value: props.initialValue || "",
+    value: props.initialValue || '',
     isValid: props.initialValid || false,
     isTouched: false,
   });
@@ -36,7 +36,7 @@ const Input = (props) => {
 
   const changeHandler = (event) => {
     dispatch({
-      type: "CHANGE",
+      type: 'CHANGE',
       val: event.target.value,
       validators: props.validators,
     });
@@ -44,12 +44,12 @@ const Input = (props) => {
 
   const touchHandler = () => {
     dispatch({
-      type: "TOUCH",
+      type: 'TOUCH',
     });
   };
 
   const element =
-    props.element === "input" ? (
+    props.element === 'input' ? (
       <input
         id={props.id}
         placeholder={props.placeholder}
@@ -70,7 +70,7 @@ const Input = (props) => {
   return (
     <div
       className={`form-control ${
-        !inputState.isValid && inputState.isTouched && "form-control--invalid"
+        !inputState.isValid && inputState.isTouched && 'form-control--invalid'
       }`}>
       <label htmlFor={props.id}>{props.label}</label>
       {element}
