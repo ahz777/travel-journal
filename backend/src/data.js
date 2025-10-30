@@ -1,9 +1,36 @@
-const USERS = [
-  { id: 'u1', name: 'Retsu', image: '/avatars/avatar01.jpg', placeCount: 3 },
-  { id: 'u2', name: 'Zykken', image: '/avatars/avatar02.jpg', placeCount: 9 },
-  { id: 'u3', name: 'Shadow', image: '/avatars/avatar03.jpg', placeCount: 7 },
-  { id: 'u4', name: 'Amadeus', image: '/avatars/avatar04.jpg', placeCount: 1 },
-  { id: 'u5', name: 'Emilia', image: '/avatars/avatar05.jpg', placeCount: 6 },
+const { v4: uuidv4 } = require('uuid');
+
+const DUMMY_USERS = [
+  {
+    id: 'u1',
+    name: 'Alice Carter',
+    email: 'alice.carter@example.com',
+    password: 'passAlice123',
+  },
+  {
+    id: 'u2',
+    name: 'Liam Johnson',
+    email: 'liam.johnson@example.com',
+    password: 'liamSecure45',
+  },
+  {
+    id: 'u3',
+    name: 'Sophia Martinez',
+    email: 'sophia.martinez@example.com',
+    password: 'sophiaPass09',
+  },
+  {
+    id: 'u4',
+    name: 'Noah Williams',
+    email: 'noah.williams@example.com',
+    password: 'noahKey77',
+  },
+  {
+    id: 'u5',
+    name: 'Emma Brown',
+    email: 'emma.brown@example.com',
+    password: 'emmaPwd2025',
+  },
 ];
 
 const DUMMY_PLACES = [
@@ -59,19 +86,6 @@ const DUMMY_PLACES = [
     },
   },
   {
-    id: 'p5',
-    imageURL: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511',
-    title: 'Ancient Oasis',
-    description:
-      'A calm spot surrounded by palms and desert dunes — rumored to have hidden springs.',
-    address: 'Siwa Oasis, Western Desert, Egypt',
-    creatorId: 'u4',
-    coordinates: {
-      lat: 29.2032,
-      lng: 25.5194,
-    },
-  },
-  {
     id: 'p6',
     imageURL: 'https://images.unsplash.com/photo-1486308510493-aa64833634ef',
     title: 'Tech Hub Workspace',
@@ -85,4 +99,4 @@ const DUMMY_PLACES = [
   },
 ];
 
-module.exports = { DUMMY_PLACES, USERS };
+module.exports = { DUMMY_PLACES, DUMMY_USERS };
