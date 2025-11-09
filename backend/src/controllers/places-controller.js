@@ -6,11 +6,14 @@ const Place = require('../models/place');
 
 const createPlace = async (req, res, next) => {
   const error = validationResult(req);
+
   if (!error.isEmpty()) {
-    throw new HttpError('Invalid inputs passed, please check your data.', 422);
+    const error = new HttpError('Invalid inputs passed, please check your data.', 422);
+    return next(error);
   }
 
   const { title, description, address, creator } = req.body;
+
   const createdPlace = new Place({
     title,
     description,
@@ -18,35 +21,55 @@ const createPlace = async (req, res, next) => {
     creator,
     image: 'https://placehold.co/400',
   });
+
   try {
     await createdPlace.save();
   } catch (err) {
     const error = new HttpError('Creating place failed, please try again.', 500);
     return next(error);
   }
+
   res.status(201).json({ place: createdPlace });
 };
 
-const getPlaceById = (req, res, next) => {
+const getPlaceById = async (req, res, next) => {
   const placeId = req.params.pid;
-  const place = DUMMY_PLACES.find((p) => {
-    return p.id === placeId;
-  });
-  if (!place) {
-    throw new HttpError('Could not find a place for the provided id.', 404);
+
+  let place;
+
+  try {
+    place = await Place.findById(placeId);
+  } catch (err) {
+    const error = new HttpError('Something went wrong, could not find a place.', 500);
+    return next(error);
   }
-  res.json({ place });
+
+  if (!place) {
+    const error = new HttpError('Could not find a place for the provided id.', 404);
+    return next(error);
+  }
+
+  res.json({ place: place.toObject({ getters: true }) });
 };
 
-const getPlacesByUserId = (req, res, next) => {
+const getPlacesByUserId = async (req, res, next) => {
   const userId = req.params.uid;
-  const places = DUMMY_PLACES.filter((p) => {
-    return p.creatorId === userId;
-  });
-  if (!places || places.length === 0) {
-    return next(new HttpError('Could not find a place for the provided user id.', 404));
+
+  let places;
+
+  try {
+    places = await Place.find({ creator: userId });
+  } catch (err) {
+    const error = new HttpError('Something went wrong, could not find a place.', 500);
+    return next(error);
   }
-  res.json({ places });
+
+  if (!places || places.length === 0) {
+    const error = new HttpError('Could not find a place for the provided user id.', 404);
+    return next(error);
+  }
+
+  res.json({ places: places.map((place) => place.toObject({ getters: true })) });
 };
 
 const updatePlace = (req, res, next) => {
