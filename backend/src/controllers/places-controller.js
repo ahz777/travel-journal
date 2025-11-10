@@ -1,6 +1,5 @@
 const { validationResult } = require('express-validator');
 
-let { DUMMY_PLACES } = require('../data');
 const HttpError = require('../models/http-error');
 const Place = require('../models/place');
 
