@@ -117,28 +117,4 @@ const deletePlace = async (req, res, next) => {
   res.status(200).json({ message: 'Deleted place.' });
 };
 
-/*
-const deletePlace = async (req, res, next) => {
-  const placeId = req.params.pid;
-
-  let place;
-
-  try {
-    place = await Place.findById(placeId);
-  } catch (err) {
-    const error = new HttpError('Something went wrong, could not find a place to delete.', 500);
-    return next(error);
-  }
-
-  try {
-    await place.deleteOne();
-  } catch (err) {
-    const error = new HttpError('Deleting place failed, please try again.', 500);
-    return next(error);
-  }
-
-  res.status(200).json({ message: 'Deleted place.' });
-};
-*/
-
 module.exports = { getPlaceById, getPlacesByUserId, createPlace, updatePlace, deletePlace };
