@@ -22,7 +22,7 @@ const signup = async (req, res, next) => {
     return next(error);
   }
 
-  const { name, email, password, places } = req.body;
+  const { name, email, password } = req.body;
 
   let existedUser;
   try {
@@ -42,7 +42,7 @@ const signup = async (req, res, next) => {
     email,
     password,
     image: 'https://placehold.co/400',
-    places,
+    places: [],
   });
 
   try {
