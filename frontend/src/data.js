@@ -1,9 +1,9 @@
 export const USERS = [
-  { id: '01', name: 'Retsu', image: '/avatars/avatar01.jpg', placeCount: 3 },
-  { id: '02', name: 'Zykken', image: '/avatars/avatar02.jpg', placeCount: 9 },
-  { id: '03', name: 'Shadow', image: '/avatars/avatar03.jpg', placeCount: 7 },
-  { id: '04', name: 'Amadeus', image: '/avatars/avatar04.jpg', placeCount: 1 },
-  { id: '05', name: 'Emilia', image: '/avatars/avatar05.jpg', placeCount: 6 },
+  { id: '01', name: 'User1', image: '/avatars/avatar01.jpg', placeCount: 3 },
+  { id: '02', name: 'User2', image: '/avatars/avatar02.jpg', placeCount: 9 },
+  { id: '03', name: 'User3', image: '/avatars/avatar03.jpg', placeCount: 7 },
+  { id: '04', name: 'User4', image: '/avatars/avatar04.jpg', placeCount: 1 },
+  { id: '05', name: 'User5', image: '/avatars/avatar05.jpg', placeCount: 6 },
 ];
 
 export const DUMMY_PLACES = [

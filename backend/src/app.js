@@ -1,17 +1,29 @@
 require('dotenv').config();
-const express = require('express');
 const morgan = require('morgan');
+
+const express = require('express');
 const mongoose = require('mongoose');
 
 const placesRoutes = require('./routes/places-routes');
 const usersRoutes = require('./routes/users-routes');
 const HttpError = require('./models/http-error');
+
 const url = process.env.MONGODB_URI;
 
 const app = express();
 
 app.use(morgan('dev'));
 app.use(express.json());
+
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+  );
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
+  next();
+});
 
 app.use('/api/places', placesRoutes);
 
