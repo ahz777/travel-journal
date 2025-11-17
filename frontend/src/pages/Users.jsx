@@ -14,9 +14,9 @@ const Users = () => {
       try {
         const responseData = await sendRequest('http://localhost:5000/api/users');
         setLoadedUsers(responseData.users);
+        // eslint-disable-next-line no-unused-vars
       } catch (err) {
-        console.log(err);
-        // Error is handled in the hook
+        /* empty */
       }
     };
     fetchUsers();
