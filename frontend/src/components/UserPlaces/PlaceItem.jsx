@@ -1,22 +1,39 @@
 import { useState, useContext } from 'react';
+
 import Card from '../UI/Card';
 import Button from '../UI/Button';
 import Modal from '../UI/Modal';
+import ErrorModal from '../UI/ErrorModal';
+import LoadingSpinner from '../UI/LoadingSpinner';
+
 import { AuthContext } from '../../context/auth-context';
+import { useHttpClient } from '../../hooks/http-hook';
+
 import './PlaceItem.css';
 
 const PlaceItem = (props) => {
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const auth = useContext(AuthContext);
-  const [showDeleteConfirmModal, setDeleteConfirmModal] = useState(false);
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
 
-  const showDeleteWarningHandler = () => setDeleteConfirmModal(true);
-  const cancelDeleteHandler = () => setDeleteConfirmModal(false);
-  const confirmDeleteHandler = () => console.log('DELETING...');
+  const showDeleteWarningHandler = () => setShowConfirmModal(true);
+  const cancelDeleteHandler = () => setShowConfirmModal(false);
+  const confirmDeleteHandler = async () => {
+    setShowConfirmModal(false);
+    try {
+      await sendRequest(`http://localhost:5000/api/places/${props.id}`, 'DELETE');
+      props.onDelete(props.id);
+      // eslint-disable-next-line no-unused-vars
+    } catch (err) {
+      /* empty */
+    }
+  };
 
   return (
     <>
+      <ErrorModal error={error} onClear={clearError} />
       <Modal
-        show={showDeleteConfirmModal}
+        show={showConfirmModal}
         onCancel={cancelDeleteHandler}
         header="Are you sure?"
         footerClass="place-item__modal-actions"
@@ -37,6 +54,7 @@ const PlaceItem = (props) => {
       </Modal>
       <li className="place-item">
         <Card>
+          {isLoading && <LoadingSpinner asOverlay />}
           <div className="place-item__image">
             <img src={props.image} alt={props.title} />
           </div>
@@ -46,8 +64,8 @@ const PlaceItem = (props) => {
             <p>{props.description}</p>
           </div>
           <div className="place-item__actions">
-            {auth.isLoggedIn && <Button to={`/places/${props.id}`}>EDIT</Button>}
-            {auth.isLoggedIn && (
+            {auth.userId === props.creatorID && <Button to={`/places/${props.id}`}>EDIT</Button>}
+            {auth.userId === props.creatorID && (
               <Button danger onClick={showDeleteWarningHandler}>
                 DELETE
               </Button>
