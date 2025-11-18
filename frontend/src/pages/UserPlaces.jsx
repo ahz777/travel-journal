@@ -30,14 +30,6 @@ const UserPlaces = () => {
     setLoadedPlaces((prevPlaces) => prevPlaces.filter((place) => place.id !== deletedPlaceId));
   };
 
-  if (!loadedPlaces && !isLoading) {
-    return (
-      <li className="center">
-        <Card>No places found.</Card>
-      </li>
-    );
-  }
-
   return (
     <>
       <ErrorModal error={error} onClear={clearError} />
