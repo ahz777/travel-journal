@@ -64,8 +64,8 @@ const PlaceItem = (props) => {
             <p>{props.description}</p>
           </div>
           <div className="place-item__actions">
-            {auth.userId === props.creatorID && <Button to={`/places/${props.id}`}>EDIT</Button>}
-            {auth.userId === props.creatorID && (
+            {auth.userId === props.creatorId && <Button to={`/places/${props.id}`}>EDIT</Button>}
+            {auth.userId === props.creatorId && (
               <Button danger onClick={showDeleteWarningHandler}>
                 DELETE
               </Button>
