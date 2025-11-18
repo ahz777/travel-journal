@@ -2,35 +2,19 @@ import { useState, useContext } from 'react';
 import Card from '../UI/Card';
 import Button from '../UI/Button';
 import Modal from '../UI/Modal';
-import Map from '../UI/Map';
 import { AuthContext } from '../../context/auth-context';
 import './PlaceItem.css';
 
 const PlaceItem = (props) => {
   const auth = useContext(AuthContext);
-  const [showMap, setShowMap] = useState(false);
   const [showDeleteConfirmModal, setDeleteConfirmModal] = useState(false);
 
-  const openMapHandler = () => setShowMap(true);
-  const closeMapHandler = () => setShowMap(false);
   const showDeleteWarningHandler = () => setDeleteConfirmModal(true);
   const cancelDeleteHandler = () => setDeleteConfirmModal(false);
   const confirmDeleteHandler = () => console.log('DELETING...');
 
   return (
     <>
-      <Modal
-        show={showMap}
-        onCancel={closeMapHandler}
-        header={props.address}
-        contentClass="place-item__modal-content"
-        footerClass="place-item__modal-actions"
-        footer={<Button onClick={closeMapHandler}>CLOSE</Button>}>
-        <div className="map-container">
-          {/* <Map center={props.coordinates} zoom={16}/> */}
-          <h4>THE MAP</h4>
-        </div>
-      </Modal>
       <Modal
         show={showDeleteConfirmModal}
         onCancel={cancelDeleteHandler}
@@ -62,9 +46,6 @@ const PlaceItem = (props) => {
             <p>{props.description}</p>
           </div>
           <div className="place-item__actions">
-            <Button inverse onClick={openMapHandler}>
-              VIEW ON MAP
-            </Button>
             {auth.isLoggedIn && <Button to={`/places/${props.id}`}>EDIT</Button>}
             {auth.isLoggedIn && (
               <Button danger onClick={showDeleteWarningHandler}>
