@@ -5,6 +5,7 @@ import ErrorModal from '../components/UI/ErrorModal';
 import LoadingSpinner from '../components/UI/LoadingSpinner';
 import PlaceList from '../components/UserPlaces/PlaceList';
 import { useHttpClient } from '../hooks/http-hook';
+import Card from '../components/UI/Card';
 
 const UserPlaces = () => {
   const [loadedPlaces, setLoadedPlaces] = useState();
@@ -28,6 +29,14 @@ const UserPlaces = () => {
   const placeDeleteHandler = (deletedPlaceId) => {
     setLoadedPlaces((prevPlaces) => prevPlaces.filter((place) => place.id !== deletedPlaceId));
   };
+
+  if (!loadedPlaces && !isLoading) {
+    return (
+      <li className="center">
+        <Card>No places found.</Card>
+      </li>
+    );
+  }
 
   return (
     <>
